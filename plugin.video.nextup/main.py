@@ -60,7 +60,7 @@ for k in sql_result:
     list_item.setInfo('video', {'title': episode_details['episodedetails']['title'],'genre': str(k[4]), 'plot': episode_details['episodedetails']['plot'], 'path': episode_details['episodedetails']['file'],'premiered': episode_details['episodedetails']['firstaired'], 'aired': episode_details['episodedetails']['firstaired'], 'tvshowtitle': episode_details['episodedetails']['showtitle'], 'season': episode_details['episodedetails']['season'], 'episode': episode_details['episodedetails']['episode'], 'dbid': str(k[0]), 'mediatype': 'episode', 'writer': episode_details['episodedetails']['writer'], 'director': episode_details['episodedetails']['director'],  'code': episode_details['episodedetails']['productioncode'], 'showlink': episode_details['episodedetails']['showtitle']})
 
     try:
-        list_item.setArt({ 'thumb': tvshow_details['art']['landscape'], "poster": season_art['poster'], "banner": season_art['tvshow.banner'], "fanart": season_art['tvshow.fanart'], "landscape": tvshow_details['art']['landscape']})
+        list_item.setArt({ 'thumb': tvshow_details['art']['landscape'], "poster": season_art['poster'], "banner": season_art['tvshow.banner'], "fanart": season_art['tvshow.fanart'], "landscape": tvshow_details['art']['landscape'], "clearlogo": tvshow_details['art']['clearlogo']})
     except:
         try:
             list_item.setArt({ 'thumb': season_art['tvshow.fanart'], "poster": season_art['poster'], "banner": season_art['tvshow.banner'], "fanart": season_art['tvshow.fanart'], "landscape": season_art['tvshow.fanart']})
@@ -79,7 +79,10 @@ for k in sql_result:
                             list_item.setArt({ 'poster': tvshow_details['art']['poster']})
                         except:
                             pass
-
+    try:
+        list_item.setArt({ 'clearart': tvshow_details['art']['clearart']})
+    except:
+        pass
     url = episode_details['episodedetails']['file']
     list_item.setProperty('IsPlayable', 'true')
 
