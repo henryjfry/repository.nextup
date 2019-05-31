@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+    <category label="Next Up Episodes Method">
+        <setting label="Select Next Up Episodes Method to Use" type="enum"   id="sql_method" values="1|2|3|4" default="1"/>
+        <setting label="1.In Progress shows only ordered by airdate" type="lsep"/>
+        <setting type="bool" visible="false" /> <!-- Separate multiple labels-->
+        <setting label="2.All TV shows ordered by airdate" type="lsep"/>
+        <setting type="bool" visible="false" /> <!-- Separate multiple labels-->
+        <setting label="3.In Progress ordered by the last played or airdate if newer" type="lsep"/>
+        <setting type="bool" visible="false" /> <!-- Separate multiple labels-->
+        <setting label="4.All TV shows sorted by last played then date aired" type="lsep"/>
+        <setting type="bool" visible="false" /> <!-- Separate multiple labels-->
+    </category>
+</settings>
