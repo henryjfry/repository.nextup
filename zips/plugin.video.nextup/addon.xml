@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="plugin.video.nextup" version="0.0.8" name="Next Up Episodes" provider-name="fryhenryj">
+<addon id="plugin.video.nextup" version="0.0.9" name="Next Up Episodes" provider-name="fryhenryj">
 <requires>
   <import addon="xbmc.python" version="2.25.0"/>
 </requires>
@@ -19,5 +19,3 @@ Added context items in the addon "Refresh Directory" (plugin://plugin.video.next
   </assets>
 </extension>
 </addon>
-Changes V0.0.8: Added option in the settings "Update List" which will update the widget, also available as "plugin://plugin.video.nextup/update_widget"
-Added context items in the addon "Refresh Directory" (plugin://plugin.video.nextup/dir) + "Settings" (plugin://plugin.video.nextup/settings) so you could add a button to your home screen to change the next up method and then rerun the list "RunPlugin(plugin://plugin.video.nextup/settings)"
