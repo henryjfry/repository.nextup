@@ -12,6 +12,8 @@ import xbmcaddon
 import json
 import routing
 
+import os.path
+
 plugin = routing.Plugin()
 
 __addon__        = xbmcaddon.Addon()
@@ -24,6 +26,16 @@ if ':' in update_playlist_path:
     update_playlist_path = update_playlist_path +'\emptywidget.xsp'
 else:
     update_playlist_path = update_playlist_path +'/emptywidget.xsp'
+
+#check whether or not playlist file exists create it if not (dummy playlist used to trigger widget updates)
+if os.path.exists(update_playlist_path) == False:
+    xml_playlist = '<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>' + "\n" + '<smartplaylist type="episodes">'
+    xml_playlist = xml_playlist + "\n" + '<name>workaround for empty widget used for refreshes</name>' + "\n" + '<match>all</match>'
+    xml_playlist = xml_playlist + "\n" + '<rule field="year" operator="greaterthan">' + "\n" + '<value>2200</value>' + "\n" + '</rule>'
+    xml_playlist = xml_playlist + "\n" + '<limit>1</limit>' + "\n" +  '</smartplaylist>'
+    f = open(update_playlist_path, "w")
+    f.write(xml_playlist)
+    f.close()
 
 addon_handle = int(sys.argv[1])
 
@@ -58,9 +70,6 @@ class Main:
 		xbmcplugin.setContent(addon_handle, 'episodes')
 
 		sql_method = int(__addon__.getSetting('sql_method'))+1
-
-		xbmc.log('/home/osmc/.kodi/addons/plugin.video.nextup/main.py      '+str(sql_method), level=2)
-
 
 		if sql_method == 1:
 		#next up tv shows (in progress only) ordered by airdate
