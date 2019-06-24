@@ -96,7 +96,7 @@ def kodi_playlist_generate():
 
 	cur = con.cursor()
 #	playlist_path = 'special://profile/playlists/video'
-	playlist_path = str(xbmc.translatePath('special://profile/playlists/video'))
+	playlist_path = str(xbmc.translatePath('special://profile/playlists/video')) + '/'
 
 	sql_method = int(__addon__.getSetting('sql_method'))+1
 
