@@ -95,7 +95,8 @@ def kodi_playlist_generate():
 		con = mysql.connector.connect(host=sql_host, user=sql_username, passwd=sql_password, port=sql_port, db=sql_db_name)
 
 	cur = con.cursor()
-	playlist_path = '/home/osmc/.kodi/userdata/playlists/video/'
+#	playlist_path = 'special://profile/playlists/video'
+	playlist_path = str(xbmc.translatePath('special://profile/playlists/video'))
 
 	sql_method = int(__addon__.getSetting('sql_method'))+1
 
