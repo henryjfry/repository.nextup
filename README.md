@@ -1,5 +1,7 @@
 # BASIC - How to setup for hosting on GitHub Pages
 
+#https://henryjfry.github.io/repository.nextup/repo/
+
 In order to follow this tutorial, first fork this repository, and then clone your newly forked copy locally.
 
 First, you'll need to edit the `addon.xml` file within the `/repository.example` folder with your chosen add-on ID, a version number, and your username (or whatever you'd like) for `provider`, as seen on line 2:
